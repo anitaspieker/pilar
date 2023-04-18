@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:pilar/core/base/datasource/datasource.dart';
-import 'package:pilar/features/home/data/datasource/pilar_backend.dart';
-import 'package:pilar/features/home/data/models/property_model.dart';
+import 'package:pilar/app/features/home/data/datasource/pilar_backend.dart';
+import 'package:pilar/app/features/home/data/models/property_model.dart';
+import 'package:pilar/core/contracts/datasource/datasource.dart';
 
 class GetPropertiesDataSource implements DataSource {
   @override

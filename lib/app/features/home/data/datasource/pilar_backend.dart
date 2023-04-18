@@ -1,7 +1,7 @@
 import 'dart:io';
 
+import 'package:pilar/app/features/home/domain/entities/response.dart';
 import 'package:pilar/core/utils/json_reader.dart';
-import 'package:pilar/features/home/domain/entities/response.dart';
 
 class PilarBackend {
   static Future<Response> handleRequest() async {

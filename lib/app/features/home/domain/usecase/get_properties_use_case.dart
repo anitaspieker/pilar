@@ -1,5 +1,5 @@
-import 'package:pilar/features/home/data/repository/get_properties_repository_impl.dart';
-import 'package:pilar/features/home/domain/entities/property.dart';
+import 'package:pilar/app/features/home/data/repository/get_properties_repository_impl.dart';
+import 'package:pilar/app/features/home/domain/entities/property.dart';
 
 abstract class GetPropertiesUseCase {
   Future<List<Property>> call();

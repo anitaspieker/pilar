@@ -1,6 +1,6 @@
-import 'package:pilar/core/base/model/model.dart';
-import 'package:pilar/features/home/data/models/image_model.dart';
-import 'package:pilar/features/home/domain/entities/property.dart';
+import 'package:pilar/app/features/home/data/models/image_model.dart';
+import 'package:pilar/app/features/home/domain/entities/property.dart';
+import 'package:pilar/core/contracts/model/model.dart';
 
 class PropertyModel extends Property implements Model {
   PropertyModel(

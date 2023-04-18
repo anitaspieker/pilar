@@ -1,5 +1,5 @@
-import 'package:pilar/core/base/datasource/datasource.dart';
-import 'package:pilar/features/home/domain/entities/property.dart';
+import 'package:pilar/app/features/home/domain/entities/property.dart';
+import 'package:pilar/core/contracts/datasource/datasource.dart';
 
 abstract class GetPropertiesRepository {
   Future<List<Property>> call();

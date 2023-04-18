@@ -1,5 +1,5 @@
-import 'package:pilar/core/base/model/model.dart';
-import 'package:pilar/features/home/domain/entities/image.dart';
+import 'package:pilar/app/features/home/domain/entities/image.dart';
+import 'package:pilar/core/contracts/model/model.dart';
 
 class ImageModel extends Image implements Model {
   ImageModel(String? url) : super(url);
