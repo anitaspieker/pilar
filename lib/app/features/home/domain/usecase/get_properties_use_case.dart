@@ -12,6 +12,6 @@ class GetPropertiesUseCaseImpl implements GetPropertiesUseCase {
 
   @override
   Future<List<Property>> call() {
-    return repository();
+    return repository.call();
   }
 }

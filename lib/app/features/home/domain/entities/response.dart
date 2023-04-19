@@ -1,6 +1,6 @@
 class Response {
   final int status;
-  final List<Map<String, dynamic>>? json;
+  final List? json;
 
   Response({required this.status, this.json});
 }
