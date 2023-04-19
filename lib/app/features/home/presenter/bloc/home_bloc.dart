@@ -20,11 +20,27 @@ class HomeBloc extends ChangeNotifier {
     currentState.value.isLoading = true;
     try {
       final response = await _useCase();
+      response.sort((b, a) => a.askingPrice!.compareTo(b.askingPrice!));
+
       currentState.value.properties = response;
       currentState.notifyListeners();
     } catch (error) {
       print(error);
     }
     currentState.value.isLoading = false;
+  }
+
+  void reOrderProperties(String? string) {
+    bool orderMostExpensive = string == "MAIS CARO";
+    if (orderMostExpensive) {
+      currentState.value.properties
+          ?.sort((b, a) => a.askingPrice!.compareTo(b.askingPrice!));
+
+      currentState.notifyListeners();
+    } else {
+      currentState.value.properties
+          ?.sort((a, b) => a.askingPrice!.compareTo(b.askingPrice!));
+      currentState.notifyListeners();
+    }
   }
 }

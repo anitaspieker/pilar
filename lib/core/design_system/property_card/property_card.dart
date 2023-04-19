@@ -23,19 +23,18 @@ class PropertyCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const borderRadius = BorderRadius.only(
-        topLeft: Radius.circular(DSSizes.small),
-        topRight: Radius.circular(DSSizes.small));
     return Container(
       height: 800,
       decoration: const BoxDecoration(
         color: DSColors.transparentWhite,
-        borderRadius: borderRadius,
+        borderRadius: BorderRadius.all(Radius.circular(DSSizes.extraSmall)),
       ),
       child: Column(
         children: [
           ClipRRect(
-            borderRadius: borderRadius,
+            borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(DSSizes.extraSmall),
+                topRight: Radius.circular(DSSizes.extraSmall)),
             child: Image.network(
               image ?? "",
               height: 100,
@@ -49,12 +48,18 @@ class PropertyCard extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: DSSizes.extraSmall),
-            child: Column(children: [Text(address ?? "", overflow: TextOverflow.ellipsis,),
-            Text(type ?? ""),
-            Text(MoneyFormat.moneyFormat(price ?? 0)),
-            Text("${bedrooms}QT ${suites}ST ${parkingSpots}VG")],),
+            child: Column(
+              children: [
+                Text(
+                  address ?? "",
+                  overflow: TextOverflow.ellipsis,
+                ),
+                Text(type ?? ""),
+                Text(MoneyFormat.moneyFormat(price ?? 0)),
+                Text("${bedrooms}QT ${suites}ST ${parkingSpots}VG")
+              ],
+            ),
           )
-          
         ],
       ),
     );

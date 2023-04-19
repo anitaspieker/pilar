@@ -45,35 +45,44 @@ class _HomeViewState extends State<HomeView> {
                   opacity: .5,
                 ),
               ),
-              child: Column(
-                children: data.isLoading || data.properties == null
-                    ? [const Loader()]
-                    : [
-                        Container(
-                          height: MediaQuery.of(context).size.height * .7,
-                          padding: const EdgeInsets.all(DSSizes.medium),
-                          child: GridView.builder(
-                            shrinkWrap: true,
-                            itemCount: data.properties?.length,
-                            gridDelegate:
-                                const SliverGridDelegateWithMaxCrossAxisExtent(
-                                    maxCrossAxisExtent: 200,
-                                    crossAxisSpacing: DSSizes.medium,
-                                    mainAxisSpacing: DSSizes.medium),
-                            itemBuilder: (BuildContext ctx, index) {
-                              var currentProperty = data.properties![index];
-                              return PropertyCard(
-                                  image: currentProperty.images?.first.url,
-                                  address: currentProperty.address,
-                                  type: currentProperty.propertyType,
-                                  price: currentProperty.askingPrice,
-                                  bedrooms: currentProperty.bedrooms,
-                                  suites: currentProperty.suites,
-                                  parkingSpots: currentProperty.parkingSpots);
-                            },
+              child: Padding(
+                padding: const EdgeInsets.all(DSSizes.medium),
+                child: Column(
+                  children: data.isLoading || data.properties == null
+                      ? [const Loader()]
+                      : [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Search(onTap: (){},),
+                              Dropdown(onChanged:(orderBy) => bloc.reOrderProperties(orderBy),)
+                            ],
                           ),
-                        )
-                      ],
+                          const SizedBox(height: DSSizes.medium),
+                          Expanded(
+                            child: GridView.builder(
+                              shrinkWrap: true,
+                              itemCount: data.properties?.length,
+                              gridDelegate:
+                                  const SliverGridDelegateWithMaxCrossAxisExtent(
+                                      maxCrossAxisExtent: 200,
+                                      crossAxisSpacing: DSSizes.medium,
+                                      mainAxisSpacing: DSSizes.medium),
+                              itemBuilder: (BuildContext ctx, index) {
+                                var currentProperty = data.properties![index];
+                                return PropertyCard(
+                                    image: currentProperty.images?.first.url,
+                                    address: currentProperty.address,
+                                    type: currentProperty.propertyType,
+                                    price: currentProperty.askingPrice,
+                                    bedrooms: currentProperty.bedrooms,
+                                    suites: currentProperty.suites,
+                                    parkingSpots: currentProperty.parkingSpots);
+                              },
+                            ),
+                          )
+                        ],
+                ),
               ),
             ),
           );
