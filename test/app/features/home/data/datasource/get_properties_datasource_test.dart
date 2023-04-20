@@ -7,9 +7,11 @@ main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   late GetPropertiesDataSource dataSource;
+
   setUp(() async {
     dataSource = GetPropertiesDataSource();
   });
+  
   group('Get Properties Data Source |', () {
     test('returns a list of properties.', () async {
       final response = await dataSource(fromJson: (json) => PropertyModel.fromJson(json));

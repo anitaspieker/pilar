@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:pilar/app/features/home/presenter/bloc/home_bloc.dart';
+import 'package:pilar/app/features/home/presenter/home_bloc.dart';
 import 'package:pilar/core/design_system/design_system.dart';
 
 class HomeView extends StatefulWidget {

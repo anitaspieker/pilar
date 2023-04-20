@@ -6,7 +6,6 @@ import 'package:pilar/app/features/home/data/datasource/pilar_backend.dart';
 main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  setUp(() async {});
   group('Pilar Backend | handleRequest success', () {
     test('returns status 200.', () async {
       final response = await PilarBackend.handleRequest();
