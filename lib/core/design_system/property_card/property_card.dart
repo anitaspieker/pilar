@@ -20,9 +20,8 @@ class PropertyCard extends StatelessWidget {
     var parkingSpotsString = bedrooms != null ? "${parkingSpots}VG" : "";
     return Container(
       key: PilarKeys.propertyCardKey,
-      height: 800,
       decoration: const BoxDecoration(
-        color: DSColors.transparentWhite,
+        color: DSColors.primaryPurple,
         borderRadius: BorderRadius.all(Radius.circular(DSSizes.extraSmall)),
       ),
       child: Column(
@@ -35,7 +34,7 @@ class PropertyCard extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               fit: BoxFit.cover,
               errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
-                return const Text('Your error widget...');
+                return const SizedBox();
               },
             ),
           ),
@@ -47,11 +46,20 @@ class PropertyCard extends StatelessWidget {
                 Text(
                   address ?? "",
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(fontWeight: FontWeight.w600),
+                  style: const TextStyle(fontWeight: FontWeight.w600, color: DSColors.white),
                 ),
-                Text(getType(type ?? "")),
-                Text(MoneyFormat.moneyFormat(price ?? 0)),
-                Text("$bedroomString $suitesString $parkingSpotsString")
+                Text(
+                  getType(type ?? ""),
+                  style: const TextStyle(color: DSColors.white),
+                ),
+                Text(
+                  MoneyFormat.moneyFormat(price ?? 0),
+                  style: const TextStyle(color: DSColors.white),
+                ),
+                Text(
+                  "$bedroomString $suitesString $parkingSpotsString",
+                  style: const TextStyle(color: DSColors.white),
+                )
               ],
             ),
           )

@@ -19,7 +19,7 @@ class _DropdownState extends State<Dropdown> {
   Widget build(BuildContext context) {
     return Container(
       key: PilarKeys.dropDownKey,
-      width: 180,
+      width: MediaQuery.of(context).size.width / 2 - DSSizes.extraLarge,
       height: DSSizes.extraLarge,
       decoration: const BoxDecoration(
         color: DSColors.transparentWhite,

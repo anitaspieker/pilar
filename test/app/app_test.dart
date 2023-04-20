@@ -6,14 +6,13 @@ import 'package:pilar/core/keys/keys.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  setUp(() async {
+  setUp(() {
     Injector()();
   });
 
   testWidgets('App | exists', (tester) async {
     await tester.pumpWidget(const App());
 
-    final titleFinder = find.byKey(PilarKeys.materialAppKey);
-    expect(titleFinder, findsOneWidget);
+    expect(find.byKey(PilarKeys.materialAppKey), findsOneWidget);
   });
 }

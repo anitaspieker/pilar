@@ -18,15 +18,16 @@ class HomeBloc extends ChangeNotifier {
 
   final currentState = ValueNotifier<HomeState>(HomeState());
 
-  Future<void> getProperties() async {
+  Future<void>? getProperties() async {
     currentState.value.isLoading = true;
+    await Future.delayed(const Duration(seconds: 1));
     try {
       final response = await _useCase();
 
       currentState.value.properties = response;
       reOrderProperties(currentState.value.orderedBy);
-    } catch (error) {
-      print(error);
+    } catch (_) {
+      getProperties();
     }
     currentState.value.isLoading = false;
   }
@@ -48,7 +49,7 @@ class HomeBloc extends ChangeNotifier {
     if (query.isNotEmpty) {
       var normalizedQuery = StringNormalizer.normalizeString(query);
 
-      await getProperties().then((_) => currentState.value.properties = _filterThroughQuery(normalizedQuery));
+      await getProperties()!.then((_) => currentState.value.properties = _filterThroughQuery(normalizedQuery));
 
       currentState.notifyListeners();
     } else {

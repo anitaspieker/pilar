@@ -17,7 +17,7 @@ class _SearchState extends State<Search> {
   Widget build(BuildContext context) {
     return Container(
       key: PilarKeys.searchKey,
-      width: 180,
+      width: MediaQuery.of(context).size.width / 2 - DSSizes.extraLarge,
       height: DSSizes.extraLarge,
       padding: const EdgeInsets.only(left: DSSizes.small),
       decoration: const BoxDecoration(
