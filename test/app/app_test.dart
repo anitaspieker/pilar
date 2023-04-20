@@ -11,8 +11,10 @@ void main() {
   });
 
   testWidgets('App | exists', (tester) async {
-    await tester.pumpWidget(const App());
+    await tester.runAsync(() async {
+      await tester.pumpWidget(const App());
 
-    expect(find.byKey(PilarKeys.materialAppKey), findsOneWidget);
+      expect(find.byKey(PilarKeys.materialAppKey), findsOneWidget);
+    });
   });
 }
