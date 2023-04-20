@@ -44,7 +44,7 @@ class HomeBloc extends ChangeNotifier {
     }
   }
 
-  void only(String query) async {
+  void search(String query) async {
     if (query.isNotEmpty) {
       var normalizedQuery = StringNormalizer.normalizeString(query);
 
@@ -71,31 +71,4 @@ class HomeBloc extends ChangeNotifier {
     }
     return searchResults;
   }
-
-  //   HymnBook searchResults(String queryInput, HymnBook bookToSearchThrough) {
-  // List<Hymn> dummyListData = [];
-  // String query = queryInput.toString();
-  // if (query.isNotEmpty) {
-  //   for (var hymn in bookToSearchThrough.hymns) {
-  //     if (hymn.number.toString().contains(query) ||
-  //         hymn.originalNumber.toString().contains(query) ||
-  //         hymn.chorus.contains(query) ||
-  //         (hymn.originalTitle ?? "").contains(query) ||
-  //         (hymn.subtitle ?? "").contains(query) ||
-  //         hymn.title.contains(query)) {
-  //       dummyListData.add(hymn);
-  //       continue;
-  //     }
-
-  //     for (var stanza in hymn.stanzas) {
-  //       if (stanza.number.toString().contains(query) ||
-  //           stanza.text.contains(query)) {
-  //         dummyListData.add(hymn);
-  //         break;
-  //       }
-  //     }
-  //   }
-  // }
-  // return HymnBook(query, dummyListData);
-  // }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:pilar/app/features/home/presenter/home_bloc.dart';
 import 'package:pilar/core/design_system/design_system.dart';
+import 'package:pilar/core/keys/keys.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({
@@ -34,6 +35,7 @@ class _HomeViewState extends State<HomeView> {
         valueListenable: bloc.currentState,
         builder: (context, data, _) {
           return Scaffold(
+            key: PilarKeys.homeViewKey,
             appBar: const PilarAppBar(),
             body: Container(
               height: MediaQuery.of(context).size.height,
@@ -57,7 +59,7 @@ class _HomeViewState extends State<HomeView> {
                               Search(
                                 onTap: (text) {
                                   FocusScope.of(context).unfocus();
-                                  bloc.only(text);
+                                  bloc.search(text);
                                 },
                               ),
                               Dropdown(

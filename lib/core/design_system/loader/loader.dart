@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pilar/core/design_system/design_system.dart';
+import 'package:pilar/core/keys/keys.dart';
 
 class Loader extends StatelessWidget {
   const Loader({Key? key}) : super(key: key);
@@ -7,6 +8,7 @@ class Loader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
+        key: PilarKeys.loaderKey,
         child: Container(
             height: DSSizes.gigantic,
             width: DSSizes.gigantic,

@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pilar/app/app.dart';
 import 'package:pilar/app/dependency_injection/injector.dart';

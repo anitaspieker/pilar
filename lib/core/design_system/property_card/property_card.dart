@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pilar/core/design_system/design_system.dart';
+import 'package:pilar/core/keys/keys.dart';
 import 'package:pilar/core/utils/int_to_currency.dart';
 
 class PropertyCard extends StatelessWidget {
@@ -18,6 +19,7 @@ class PropertyCard extends StatelessWidget {
     var suitesString = bedrooms != null ? "${suites}ST" : "";
     var parkingSpotsString = bedrooms != null ? "${parkingSpots}VG" : "";
     return Container(
+      key: PilarKeys.propertyCardKey,
       height: 800,
       decoration: const BoxDecoration(
         color: DSColors.transparentWhite,

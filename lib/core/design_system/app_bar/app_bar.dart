@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pilar/core/design_system/design_system.dart';
+import 'package:pilar/core/keys/keys.dart';
 
 class PilarAppBar extends StatelessWidget implements PreferredSizeWidget {
   const PilarAppBar({super.key});
@@ -7,6 +8,7 @@ class PilarAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      key: PilarKeys.appBarKey,
       backgroundColor: DSColors.primaryPurple,
       actions: [
         const SizedBox(width: DSSizes.small),
