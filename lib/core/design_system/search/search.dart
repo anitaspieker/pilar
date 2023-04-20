@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pilar/core/design_system/design_system.dart';
+import 'package:pilar/core/keys/keys.dart';
 
 class Search extends StatefulWidget {
   final Function(String) onTap;
@@ -15,7 +16,8 @@ class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 180,
+      key: PilarKeys.searchKey,
+      width: MediaQuery.of(context).size.width / 2 - DSSizes.extraLarge,
       height: DSSizes.extraLarge,
       padding: const EdgeInsets.only(left: DSSizes.small),
       decoration: const BoxDecoration(

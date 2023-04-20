@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pilar/core/design_system/design_system.dart';
+import 'package:pilar/core/keys/keys.dart';
 
 class Dropdown extends StatefulWidget {
   final void Function(String?)? onChanged;
@@ -17,7 +18,8 @@ class _DropdownState extends State<Dropdown> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 180,
+      key: PilarKeys.dropDownKey,
+      width: MediaQuery.of(context).size.width / 2 - DSSizes.extraLarge,
       height: DSSizes.extraLarge,
       decoration: const BoxDecoration(
         color: DSColors.transparentWhite,
@@ -42,9 +44,7 @@ class _DropdownState extends State<Dropdown> {
             widget.onChanged?.call(newValue.toString());
           },
           dropdownColor: DSColors.transparentWhite,
-          style: const TextStyle(
-              fontSize: DSSizes.small + DSSizes.megaSmall,
-              color: DSColors.primaryPurple),
+          style: const TextStyle(fontSize: DSSizes.small + DSSizes.megaSmall, color: DSColors.primaryPurple),
         ),
       ),
     );

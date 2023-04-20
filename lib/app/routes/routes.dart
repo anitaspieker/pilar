@@ -7,11 +7,7 @@ Widget initialPage(RouteSettings routeSettings) {
 
 Widget getPage(RouteSettings routeSettings) {
   switch (routeSettings.name) {
-    case '/':
-      return initialPage(routeSettings);
-
-    default:
-      return const HomeView();
+    default: return initialPage(routeSettings);
   }
 }
 
