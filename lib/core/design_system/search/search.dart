@@ -1,30 +1,56 @@
 import 'package:flutter/material.dart';
 import 'package:pilar/core/design_system/design_system.dart';
 
-class Search extends StatelessWidget {
-  final Function()? onTap;
-  const Search({Key? key, this.onTap}) : super(key: key);
+class Search extends StatefulWidget {
+  final Function(String) onTap;
+  const Search({Key? key, required this.onTap}) : super(key: key);
+
+  @override
+  State<Search> createState() => _SearchState();
+}
+
+class _SearchState extends State<Search> {
+  final TextEditingController _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        width: 180,
-        height: DSSizes.extraLarge,
-        padding: const EdgeInsets.only(right: DSSizes.extraSmall),
-        decoration: const BoxDecoration(
-          color: DSColors.transparentWhite,
-          borderRadius: BorderRadius.all(
-            Radius.circular(DSSizes.extraSmall),
-          ),
+    return Container(
+      width: 180,
+      height: DSSizes.extraLarge,
+      padding: const EdgeInsets.only(left: DSSizes.small),
+      decoration: const BoxDecoration(
+        color: DSColors.transparentWhite,
+        borderRadius: BorderRadius.all(
+          Radius.circular(DSSizes.extraSmall),
         ),
-        child: const Align(
-          alignment: Alignment.centerRight,
-          child: Icon(
-            Icons.search,
-            color: DSColors.primaryPurple,
-          ),
+      ),
+      child: Align(
+        alignment: Alignment.centerRight,
+        child: Row(
+          children: [
+            Expanded(
+              child: TextField(
+                controller: _controller,
+                style: const TextStyle(
+                  fontSize: DSSizes.small + DSSizes.megaSmall,
+                  color: DSColors.primaryPurple,
+                ),
+                decoration: const InputDecoration(
+                  isDense: true,
+                  border: InputBorder.none,
+                ),
+                cursorColor: DSColors.primaryPurple,
+                onEditingComplete: () => widget.onTap.call(_controller.text),
+              ),
+            ),
+            IconButton(
+              onPressed: () => widget.onTap.call(_controller.text),
+              icon: const Icon(
+                Icons.search,
+                color: DSColors.primaryPurple,
+              ),
+            )
+          ],
         ),
       ),
     );

@@ -2,7 +2,7 @@ import 'package:pilar/app/features/home/data/repository/get_properties_repositor
 import 'package:pilar/app/features/home/domain/entities/property.dart';
 
 abstract class GetPropertiesUseCase {
-  Future<List<Property>> call();
+  Future<Properties> call();
 }
 
 class GetPropertiesUseCaseImpl implements GetPropertiesUseCase {
@@ -11,7 +11,7 @@ class GetPropertiesUseCaseImpl implements GetPropertiesUseCase {
   GetPropertiesUseCaseImpl(this.repository);
 
   @override
-  Future<List<Property>> call() {
+  Future<Properties> call() {
     return repository.call();
   }
 }

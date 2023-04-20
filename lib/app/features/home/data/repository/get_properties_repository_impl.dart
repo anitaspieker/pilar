@@ -2,7 +2,7 @@ import 'package:pilar/app/features/home/domain/entities/property.dart';
 import 'package:pilar/core/contracts/datasource/datasource.dart';
 
 abstract class GetPropertiesRepository {
-  Future<List<Property>> call();
+  Future<Properties> call();
 }
 
 class GetPropertiesRepositoryImpl implements GetPropertiesRepository {
@@ -10,7 +10,7 @@ class GetPropertiesRepositoryImpl implements GetPropertiesRepository {
 
   GetPropertiesRepositoryImpl(this.dataSource);
   @override
-  Future<List<Property>> call() async {
+  Future<Properties> call() async {
     return await dataSource.call();
   }
 }

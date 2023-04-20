@@ -54,8 +54,15 @@ class _HomeViewState extends State<HomeView> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Search(onTap: (){},),
-                              Dropdown(onChanged:(orderBy) => bloc.reOrderProperties(orderBy),)
+                              Search(
+                                onTap: (text) {
+                                  FocusScope.of(context).unfocus();
+                                  bloc.only(text);
+                                },
+                              ),
+                              Dropdown(
+                                onChanged: (orderBy) => bloc.reOrderProperties(orderBy),
+                              )
                             ],
                           ),
                           const SizedBox(height: DSSizes.medium),
@@ -63,21 +70,10 @@ class _HomeViewState extends State<HomeView> {
                             child: GridView.builder(
                               shrinkWrap: true,
                               itemCount: data.properties?.length,
-                              gridDelegate:
-                                  const SliverGridDelegateWithMaxCrossAxisExtent(
-                                      maxCrossAxisExtent: 200,
-                                      crossAxisSpacing: DSSizes.medium,
-                                      mainAxisSpacing: DSSizes.medium),
+                              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 200, crossAxisSpacing: DSSizes.medium, mainAxisSpacing: DSSizes.medium),
                               itemBuilder: (BuildContext ctx, index) {
                                 var currentProperty = data.properties![index];
-                                return PropertyCard(
-                                    image: currentProperty.images?.first.url,
-                                    address: currentProperty.address,
-                                    type: currentProperty.propertyType,
-                                    price: currentProperty.askingPrice,
-                                    bedrooms: currentProperty.bedrooms,
-                                    suites: currentProperty.suites,
-                                    parkingSpots: currentProperty.parkingSpots);
+                                return PropertyCard(image: currentProperty.images?.first.url, address: currentProperty.address, type: currentProperty.propertyType, price: currentProperty.askingPrice, bedrooms: currentProperty.bedrooms, suites: currentProperty.suites, parkingSpots: currentProperty.parkingSpots);
                               },
                             ),
                           )
