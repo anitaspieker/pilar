@@ -15,9 +15,7 @@ class PropertyCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var bedroomString = bedrooms != null ? "${bedrooms}QT" : "";
-    var suitesString = bedrooms != null ? "${suites}ST" : "";
-    var parkingSpotsString = bedrooms != null ? "${parkingSpots}VG" : "";
+    bool showSpecifications = bedrooms != null && suites != null && parkingSpots != null;
     return Container(
       key: PilarKeys.propertyCardKey,
       decoration: const BoxDecoration(
@@ -25,6 +23,7 @@ class PropertyCard extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(DSSizes.extraSmall)),
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           ClipRRect(
             borderRadius: const BorderRadius.only(topLeft: Radius.circular(DSSizes.extraSmall), topRight: Radius.circular(DSSizes.extraSmall)),
@@ -39,27 +38,27 @@ class PropertyCard extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: DSSizes.extraSmall),
+            padding: EdgeInsets.only(left: DSSizes.extraSmall, right: DSSizes.extraSmall, bottom: showSpecifications ? DSSizes.megaSmall : DSSizes.small),
             child: Column(
               children: [
-                const SizedBox(height: DSSizes.extraSmall),
                 Text(
                   address ?? "",
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(fontWeight: FontWeight.w600, color: DSColors.white),
+                  style: const TextStyle(color: DSColors.white),
                 ),
                 Text(
                   getType(type ?? ""),
-                  style: const TextStyle(color: DSColors.white),
+                  style: const TextStyle(fontWeight: FontWeight.w600, color: DSColors.white),
                 ),
                 Text(
                   MoneyFormat.moneyFormat(price ?? 0),
                   style: const TextStyle(color: DSColors.white),
                 ),
-                Text(
-                  "$bedroomString $suitesString $parkingSpotsString",
-                  style: const TextStyle(color: DSColors.white),
-                )
+                if (showSpecifications)
+                  Text(
+                    "${bedrooms}QT ${suites}ST ${parkingSpots}VG",
+                    style: const TextStyle(color: DSColors.white),
+                  )
               ],
             ),
           )
