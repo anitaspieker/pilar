@@ -44,7 +44,7 @@ class _DropdownState extends State<Dropdown> {
             widget.onChanged?.call(newValue.toString());
           },
           dropdownColor: DSColors.transparentWhite,
-          style: const TextStyle(fontSize: DSSizes.small + DSSizes.megaSmall, color: DSColors.primaryPurple),
+          style: const TextStyle(fontSize: DSSizes.small, color: DSColors.primaryPurple),
         ),
       ),
     );
