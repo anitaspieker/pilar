@@ -38,7 +38,7 @@ class PropertyCard extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(left: DSSizes.extraSmall, right: DSSizes.extraSmall, bottom: showSpecifications ? DSSizes.megaSmall : DSSizes.small),
+            padding: const EdgeInsets.symmetric(horizontal: DSSizes.extraSmall),
             child: Column(
               children: [
                 Text(
@@ -58,7 +58,8 @@ class PropertyCard extends StatelessWidget {
                   Text(
                     "${bedrooms}QT ${suites}ST ${parkingSpots}VG",
                     style: const TextStyle(color: DSColors.white),
-                  )
+                  ),
+                SizedBox(height: showSpecifications ?  DSSizes.extraSmall : DSSizes.small)
               ],
             ),
           )

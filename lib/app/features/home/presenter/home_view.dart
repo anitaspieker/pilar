@@ -72,7 +72,7 @@ class _HomeViewState extends State<HomeView> {
                             child: GridView.builder(
                               shrinkWrap: true,
                               itemCount: data.properties?.length,
-                              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 200, crossAxisSpacing: DSSizes.medium, mainAxisSpacing: DSSizes.medium),
+                              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 200, mainAxisExtent: 190, crossAxisSpacing: DSSizes.medium, mainAxisSpacing: DSSizes.medium),
                               itemBuilder: (BuildContext ctx, index) {
                                 var currentProperty = data.properties![index];
                                 return PropertyCard(image: currentProperty.images?.first.url, address: currentProperty.address, type: currentProperty.propertyType, price: currentProperty.askingPrice, bedrooms: currentProperty.bedrooms, suites: currentProperty.suites, parkingSpots: currentProperty.parkingSpots);
